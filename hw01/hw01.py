@@ -101,8 +101,7 @@ def hailstone(n):
 
 challenge_question_program = """
 "*** YOUR CODE HERE ***"
-    def print_func_name(function_name):
-        print(function_name.__name__)
+    s = r"print('s = r\"{0}\"'.format(s), s)";print('s = r\"{0}\"'.format(s), s)
 """
 
 
