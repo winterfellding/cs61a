@@ -100,7 +100,7 @@ def pingpong(n):
     "*** YOUR CODE HERE ***"
     def op_change(i):
         if i < 7:
-            return 1
+            return 0
         if i % 7 == 0 or has_seven(i):
             return op_change(i - 1) + 1
         return op_change(i - 1)
