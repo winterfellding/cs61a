@@ -127,7 +127,17 @@ def count_change(amount):
     9828
     """
     "*** YOUR CODE HERE ***"
-
+    def count_inner(amount, base):
+        if amount <= 0:
+            return 0
+        if base > amount:
+            return 0
+        if base == amount:
+            return 1
+        base_side = count_inner(amount - base, base)
+        other_side = count_inner(amount, 2 * base)
+        return base_side + other_side
+    return count_inner(amount, 1)
 
 def towers_of_hanoi(n, start, end):
     """Print the moves required to solve the towers of hanoi game, starting
@@ -152,6 +162,29 @@ def towers_of_hanoi(n, start, end):
     """
     assert 0 < start <= 3 and 0 < end <= 3 and start != end, "Bad start/end"
     "*** YOUR CODE HERE ***"
+
+
+    """
+    This is recurse problem can consider
+    base case:
+    Move start to end
+    others:
+    Move n - 1 to spare rod
+    Move the last one the end
+    Move the n - 1 from spare to end
+
+    Can see from MIT's 6.001 ocw. https://courses.edx.org/courses/course-v1:MITx+6.00.1x_6+2T2015/courseware/sp13_Week_3/videosequence:Lecture_5/
+    """
+    def print_move(fr, to):
+        print("Move the top disk from rod %s to rod %s" % (fr, to))
+    def tower_inner(n, fr, to, spare):
+        if n == 1:
+            print_move(fr, to)
+        else:
+            tower_inner(n - 1, fr, spare, to)
+            print_move(fr, to)
+            tower_inner(n - 1, spare, to, fr)
+    return tower_inner(n, start, end, start + 1)
 
 
 from operator import sub, mul
