@@ -195,4 +195,5 @@ def make_anonymous_factorial():
     >>> make_anonymous_factorial()(5)
     120
     """
-    return 'YOUR_EXPRESSION_HERE'
+    fact = lambda x: 1 if x == 1 else mul(x, fact(sub(x, 1)))
+    return fact
