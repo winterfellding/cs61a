@@ -82,7 +82,7 @@ def restaurant_ratings(restaurant):
 def restaurant_num_ratings(restaurant):
     """Return the number of ratings for RESTAURANT."""
     "*** YOUR CODE HERE ***"
-    return len(restaurant['reviews'])
+    return len(restaurant_ratings(restaurant))
 
 def restaurant_mean_rating(restaurant):
     """Return the average rating for RESTAURANT."""
