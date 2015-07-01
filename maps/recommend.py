@@ -99,6 +99,16 @@ def find_predictor(user, restaurants, feature_fn):
 
     "*** YOUR CODE HERE ***"
     b, a, r_squared = 0, 0, 0  # REPLACE THIS LINE WITH YOUR SOLUTION
+    sxx, syy, sxy = 0, 0, 0
+    for x in xs:
+        sxx += (x - mean(xs)) * (x - mean(xs))
+    for y in ys:
+        syy += (y - mean(ys)) * (y - mean(ys))
+    for i in range(len(xs)):
+        sxy += (xs[i] - mean(xs)) * (ys[i] - mean(ys))
+    b = sxy / sxx
+    a = mean(ys) - b * mean(xs)
+    r_squared = (sxy * sxy) / (sxx * syy)
 
     def predictor(restaurant):
         return b * feature_fn(restaurant) + a
