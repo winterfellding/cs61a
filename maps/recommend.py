@@ -56,6 +56,12 @@ def group_by_centroid(restaurants, centroids):
 def find_centroid(restaurants):
     """Return the centroid of the locations of RESTAURANTS."""
     "*** YOUR CODE HERE ***"
+    all_x = []
+    all_y = []
+    for restaurant in restaurants:
+        all_x.append(restaurant_location(restaurant)[0])
+        all_y.append(restaurant_location(restaurant)[1])
+    return [mean(all_x), mean(all_y)]
 
 def k_means(restaurants, k, max_updates=100):
     """Use k-means to group RESTAURANTS by location into K clusters."""
