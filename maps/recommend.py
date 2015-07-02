@@ -126,6 +126,10 @@ def best_predictor(user, restaurants, feature_fns):
     """
     reviewed = list(user_reviewed_restaurants(user, restaurants).values())
     "*** YOUR CODE HERE ***"
+    result_li = []
+    for feature_fn in feature_fns:
+        result_li.append(find_predictor(user, reviewed, feature_fn))
+    return max(result_li, key=lambda result: result[1])[0]
 
 def rate_all(user, restaurants, feature_functions):
     """Return the predicted ratings of RESTAURANTS by USER using the best
