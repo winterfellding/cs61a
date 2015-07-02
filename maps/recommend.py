@@ -143,6 +143,16 @@ def rate_all(user, restaurants, feature_functions):
     # (Note: the name RESTAURANTS is bound to a dictionary of all restaurants)
     predictor = best_predictor(user, RESTAURANTS, feature_functions)
     "*** YOUR CODE HERE ***"
+    reviewed = user_reviewed_restaurants(user, restaurants)
+    result = {}
+    for r_name, r in restaurants.items():
+        if r_name in reviewed.keys():
+            result[r_name] = review_rating(user_reviews(user)[r_name])
+        else:
+            result[r_name] = predictor(r)
+    return result
+
+
 
 def search(query, restaurants):
     """Return each restaurant in RESTAURANTS that has QUERY as a category.
