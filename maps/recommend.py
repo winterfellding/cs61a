@@ -162,6 +162,11 @@ def search(query, restaurants):
     restaurants -- A sequence of restaurants
     """
     "*** YOUR CODE HERE ***"
+    result = []
+    for i in range(len(restaurants) - 1, -1, -1):
+        if query not in restaurant_categories(restaurants[i]):
+            restaurants.remove(restaurants[i])
+    return restaurants
 
 def feature_set():
     """Return a sequence of feature functions."""
