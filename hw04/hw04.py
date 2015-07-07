@@ -82,6 +82,8 @@ def par2(r1, r2):
 
 # These two intervals give different results for parallel resistors:
 "*** YOUR CODE HERE ***"
+par1(interval(2, 3), interval(3, 33))
+par2(interval(2, 3), interval(3, 33))
 
 def multiple_references_explanation():
     return """The mulitple reference problem..."""
